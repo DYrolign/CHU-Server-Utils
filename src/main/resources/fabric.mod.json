@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "csu",
+	"version": "${version}",
+	"name": "CHU Server Utils",
+	"description": "Provides some utilities designed for the Minecraft server of CHU.",
+	"authors": [
+		"dYrolign"
+	],
+	"contributors": [],
+	"contact": {
+		"homepage": "https://dyrolign.github.io/home/",
+		"sources": "https://github.com/DYrolign/CHU-Server-Utils"
+	},
+	"license": "MIT",
+	"icon": "assets/csu/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"dyl.csu.CHUServerUtils"
+		],
+		"client": [
+			"dyl.csu.CHUServerUtilsClient"
+		]
+	},
+	"mixins": [
+		"csu.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

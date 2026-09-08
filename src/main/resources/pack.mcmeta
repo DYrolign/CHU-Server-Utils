@@ -1,0 +1,9 @@
+{
+  "pack": {
+    "description": "Provides Some utilities designed for the Minecraft server of CHU.",
+    "min_format": 15,
+    "max_format": 101,
+    "pack_format": 15,
+    "supported_formats": [15, 101]
+  }
+}

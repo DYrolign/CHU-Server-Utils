@@ -1,0 +1,18 @@
+{
+  "gui.csu.choose_server": "Choose Server",
+  "gui.csu.menu": "CHU Menu",
+
+  "gui.csu.server_switcher": "Child Server List",
+
+  "gui.csu.survival": "Survival",
+  "gui.csu.minigames": "Minigames",
+  "gui.csu.cancel": "Cancel",
+  "gui.csu.back": "Back",
+
+  "message.csu.switching": "%s is entering the %s server",
+  "message.csu.welcoming": "Welcome to join CHU Server!",
+  "message.csu.key_tip": "Press %s to open the server switcher menu",
+
+  "key.category.csu.general": "CHU Server Utils",
+  "key.csu.open_switcher": "Open Server Switcher Menu"
+}

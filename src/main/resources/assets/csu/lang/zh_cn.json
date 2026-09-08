@@ -1,0 +1,18 @@
+{
+  "gui.csu.choose_server": "选择服务器",
+  "gui.csu.menu": "帮助菜单",
+
+  "gui.csu.server_switcher": "子服列表",
+
+  "gui.csu.survival": "生存",
+  "gui.csu.minigames": "小游戏",
+  "gui.csu.cancel": "取消",
+  "gui.csu.back": "返回",
+
+  "message.csu.switching": "%s正在前往%s服",
+  "message.csu.welcoming": "欢迎来到霓裳!",
+  "message.csu.key_tip": "按%s键打开服务器帮助菜单",
+
+  "key.category.csu.general": "CHU服务器工具",
+  "key.csu.open_switcher": "打开服务器选择界面"
+}
