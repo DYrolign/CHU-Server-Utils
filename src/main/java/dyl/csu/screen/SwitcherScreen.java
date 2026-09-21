@@ -11,12 +11,11 @@ import java.util.List;
 public class SwitcherScreen extends Screen {
     private static final Text TITLE = Text.translatable("gui.csu.choose_server");
     private static final Text BACK = Text.translatable("gui.csu.back");
-    private static final Text SURVIVAL = Text.translatable("gui.csu.survival");
-    private static final Text MINIGAMES = Text.translatable("gui.csu.minigames");
 
-
-    public SwitcherScreen() {
+    private final Screen parent;
+    public SwitcherScreen(Screen parent) {
         super(TITLE);
+        this.parent = parent;
     }
 
     @Override
@@ -63,23 +62,6 @@ public class SwitcherScreen extends Screen {
             ).dimensions(x, y, buttonWidth, buttonHeight).build());
         }
 
-        /*
-        this.addDrawableChild(ButtonWidget.builder(SURVIVAL, btn -> {
-            String server = "survival";
-            if (client.player != null) {
-                client.player.networkHandler.sendChatCommand("server " + server);
-            }
-            this.close();
-        }).dimensions(centerX - buttonWidth - spacing / 2, this.height / 2 - 30, buttonWidth, buttonHeight).build());
-
-        this.addDrawableChild(ButtonWidget.builder(MINIGAMES, btn -> {
-            String server = "minigames";
-            if (client.player != null) {
-                client.player.networkHandler.sendChatCommand("server " + server);
-            }
-            this.close();
-        }).dimensions(centerX + spacing / 2, this.height / 2 - 30, buttonWidth, buttonHeight).build());*/
-
         this.addDrawableChild(ButtonWidget.builder(BACK, btn -> {
             client.setScreen(new MenuScreen());
         }).dimensions(centerX - buttonWidth/2, this.height / 2 + 50, buttonWidth, buttonHeight).build());
@@ -88,5 +70,12 @@ public class SwitcherScreen extends Screen {
     @Override
     public boolean shouldPause() {
         return false;
+    }
+
+    @Override
+    public void close() {
+        if (this.client != null) {
+            this.client.setScreen(parent);
+        }
     }
 }

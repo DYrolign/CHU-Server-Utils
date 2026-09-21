@@ -8,6 +8,7 @@ import net.minecraft.text.Text;
 public class MenuScreen extends Screen {
     private static final Text MENU_TITLE = Text.translatable("gui.csu.menu");
     private static final Text SERVER_SWITCHER = Text.translatable("gui.csu.server_switcher");
+    private static final Text CONFIG = Text.translatable("gui.csu.config");
     private static final Text CANCEL = Text.translatable("gui.csu.cancel");
 
     public MenuScreen() {
@@ -27,9 +28,15 @@ public class MenuScreen extends Screen {
 
         this.addDrawableChild(title);
 
+        if (client == null) return;
+
         this.addDrawableChild(ButtonWidget.builder(SERVER_SWITCHER, btn -> {
-            client.setScreen(new SwitcherScreen());
+            client.setScreen(new SwitcherScreen(this));
         }).dimensions(centerX - buttonWidth / 2, this.height / 2 - 30, buttonWidth, buttonHeight).build());
+
+        this.addDrawableChild(ButtonWidget.builder(CONFIG, btn -> {
+            client.setScreen(new ConfigScreen(this));
+        }).dimensions(centerX - buttonWidth / 2, this.height / 2 + 10, buttonWidth, buttonHeight).build());
 
         this.addDrawableChild(ButtonWidget.builder(CANCEL, btn -> {
             this.close();
