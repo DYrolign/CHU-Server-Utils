@@ -2,7 +2,7 @@
 	"required": true,
 	"package": "dyl.csu.mixin",
 	"compatibilityLevel": "JAVA_21",
-	"mixins": [],
+	"mixins": ["ModMenuMixin"],
 	"injectors": {
 		"defaultRequire": 1
 	},

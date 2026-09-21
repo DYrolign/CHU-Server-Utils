@@ -17,6 +17,7 @@ public class ConfigScreen extends Screen {
     private static final Text TITLE = Text.translatable("gui.csu.config");
     private static final Text SAVE = Text.translatable("gui.csu.save");
     private static final Text CANCEL = Text.translatable("gui.csu.cancel");
+    private static final Text RESET = Text.literal("↺");
 
     private final Screen parent;
     private final List<TextFieldWidget> fields = new ArrayList<>();
@@ -31,15 +32,19 @@ public class ConfigScreen extends Screen {
         super.init();
 
         int centerX = this.width / 2;
+        int startFieldY = this.height / 2 - 70;
+        int startButtonY = this.height / 2 - 30;
         int fieldWidth = 200;
         int fieldHeight = 20;
+        int buttonWidth = 100;
+        int buttonHeight = 20;
+        int spacing = 10;
         int gap = 8;
-        int startY = this.height / 2 - 70;
 
         // 标题
         this.addDrawableChild(new TextWidget(
                 centerX - this.textRenderer.getWidth(TITLE) / 2,
-                startY - 30,
+                startFieldY - 30,
                 this.textRenderer.getWidth(TITLE),
                 this.textRenderer.fontHeight,
                 TITLE,
@@ -50,7 +55,7 @@ public class ConfigScreen extends Screen {
         fields.clear();
         Config.INSTANCE.normalize();
         for (int i = 0; i < Config.SLOT_COUNT; i++) {
-            int y = startY + i * (fieldHeight + gap);
+            int y = startFieldY + i * (fieldHeight + gap);
             TextFieldWidget field = new TextFieldWidget(
                     this.textRenderer,
                     centerX - fieldWidth / 2,
@@ -71,23 +76,29 @@ public class ConfigScreen extends Screen {
 
             this.addDrawableChild(field);
             fields.add(field);
+
+            if (i != 0) {
+                final int index = i;
+                ButtonWidget resetBtn = ButtonWidget.builder(RESET, btn -> {
+                    fields.get(index).setText("");
+                }).dimensions(centerX - fieldWidth / 2 + fieldWidth + 4, y, fieldHeight, fieldHeight).build();
+                this.addDrawableChild(resetBtn);
+            }
         }
 
         // 保存按钮
-        int btnY = startY + Config.SLOT_COUNT * (fieldHeight + gap) + 30;
-        int btnWidth = 80;
         this.addDrawableChild(ButtonWidget.builder(SAVE, btn -> {
             for (int i = 0; i < Config.SLOT_COUNT; i++) {
                 Config.INSTANCE.servers.set(i, fields.get(i).getText().trim());
             }
             Config.save();
             this.close();
-        }).dimensions(centerX - btnWidth - 5, btnY, btnWidth, 20).build());
+        }).dimensions(centerX - buttonWidth - 5, startButtonY + 3 * (buttonHeight + spacing), buttonWidth, buttonHeight).build());
 
         // 取消按钮
         this.addDrawableChild(ButtonWidget.builder(CANCEL, btn -> {
             this.close();
-        }).dimensions(centerX + 5, btnY, btnWidth, 20).build());
+        }).dimensions(centerX + 5, startButtonY + 3 * (buttonHeight + spacing), buttonWidth, buttonHeight).build());
     }
 
     @Override

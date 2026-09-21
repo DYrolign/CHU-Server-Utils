@@ -1,10 +1,13 @@
 package dyl.csu.screen;
 
 import dyl.csu.Config;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextWidget;
+import net.minecraft.client.util.Window;
 import net.minecraft.text.Text;
+import org.lwjgl.glfw.GLFW;
 
 import java.util.List;
 
@@ -21,7 +24,9 @@ public class SwitcherScreen extends Screen {
     @Override
     protected void init() {
         super.init();
+
         int centerX = this.width / 2;
+        int startY = this.height / 2 - 30;
         int buttonWidth = 100;
         int buttonHeight = 20;
         int spacing = 10;
@@ -40,7 +45,6 @@ public class SwitcherScreen extends Screen {
 
         List<String> servers = Config.INSTANCE.getValidServers();
 
-        int startY = this.height / 2 - 30;
         for (int i = 0; i < servers.size(); i++) {
             String server = servers.get(i);
             int row = i / 2;
@@ -57,14 +61,14 @@ public class SwitcherScreen extends Screen {
                         if (client != null && client.player != null) {
                             client.player.networkHandler.sendChatCommand(cmd);
                         }
-                        this.close();
+                        client.setScreen(null);
                     }
             ).dimensions(x, y, buttonWidth, buttonHeight).build());
         }
 
         this.addDrawableChild(ButtonWidget.builder(BACK, btn -> {
             client.setScreen(new MenuScreen());
-        }).dimensions(centerX - buttonWidth/2, this.height / 2 + 50, buttonWidth, buttonHeight).build());
+        }).dimensions(centerX - buttonWidth/2, startY + 3 * (buttonHeight + spacing), buttonWidth, buttonHeight).build());
     }
 
     @Override
