@@ -1,13 +1,13 @@
 {
+  "modmenu.bilibli": "My Bilibili Channel",
+
   "gui.csu.choose_server": "Choose Server",
   "gui.csu.menu": "CHU Menu",
-
   "gui.csu.server_switcher": "Child Server List",
-
-  "gui.csu.survival": "Survival",
-  "gui.csu.minigames": "Minigames",
+  "gui.csu.config": "Config",
   "gui.csu.cancel": "Cancel",
   "gui.csu.back": "Back",
+  "gui.csu.save": "Save",
 
   "message.csu.switching": "%s is entering the %s server",
   "message.csu.welcoming": "Welcome to join CHU Server!",

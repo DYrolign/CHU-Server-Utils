@@ -58,6 +58,7 @@ public class CHUServerUtilsClient implements ClientModInitializer {
 				}
 			}
 		});
+		Config.load();
 	}
 }
 

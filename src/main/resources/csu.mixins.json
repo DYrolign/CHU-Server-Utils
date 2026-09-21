@@ -3,6 +3,8 @@
 	"package": "dyl.csu.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
+		"LeafDecayMixin",
+		"LogBreakMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -10,17 +10,29 @@
 	"contributors": [],
 	"contact": {
 		"homepage": "https://dyrolign.github.io/home/",
-		"sources": "https://github.com/DYrolign/CHU-Server-Utils"
+		"sources": "https://github.com/DYrolign/CHU-Server-Utils",
+		"issues" : "https://github.com/DYrolign/CHU-Server-Utils/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/csu/icon.png",
-	"environment": "*",
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.bilibli": "https://space.bilibili.com/575706684"
+			},
+			"update_checker": false
+		}
+	},
+	"environment" : "*",
 	"entrypoints": {
 		"main": [
 			"dyl.csu.CHUServerUtils"
 		],
 		"client": [
 			"dyl.csu.CHUServerUtilsClient"
+		],
+		"modmenu": [
+			"dyl.csu.ModMenuIntegration"
 		]
 	},
 	"mixins": [

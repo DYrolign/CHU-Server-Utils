@@ -1,13 +1,16 @@
 {
+  "modmenu.nameTranslation.csu": "霓裳服务器工具",
+  "modmenu.descriptionTranslation.csu": "提供给霓裳服务器玩家的一些实用功能!\n镐京方块协会群号: 659818155",
+  "modmenu.summaryTranslation.csu": "霓裳霓裳",
+  "modmenu.bilibli": "作者B站",
+
   "gui.csu.choose_server": "选择服务器",
   "gui.csu.menu": "帮助菜单",
-
   "gui.csu.server_switcher": "子服列表",
-
-  "gui.csu.survival": "生存",
-  "gui.csu.minigames": "小游戏",
   "gui.csu.cancel": "取消",
   "gui.csu.back": "返回",
+  "gui.csu.save": "保存",
+  "gui.csu.config": "配置文件",
 
   "message.csu.switching": "%s正在前往%s服",
   "message.csu.welcoming": "欢迎来到霓裳!",
