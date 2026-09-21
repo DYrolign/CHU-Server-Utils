@@ -2,10 +2,7 @@
 	"required": true,
 	"package": "dyl.csu.mixin",
 	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"LeafDecayMixin",
-		"LogBreakMixin"
-	],
+	"mixins": [],
 	"injectors": {
 		"defaultRequire": 1
 	},
